@@ -58,7 +58,7 @@ module.exports = (env, args) => {
 
 You can choose the configuration you want by using `webpack --mode development` assuming you are using _webpack-cli_.
 
-## **`mergeWithCustomize({ customizeArray, customizeObject })(...configuration | [...configuration])`**
+## **`mergeWithCustomize({ customizeArray, customizeObject, customizePrimitive })(...configuration | [...configuration])`**
 
 In case you need more flexibility, `merge` behavior can be customized per field as below:
 

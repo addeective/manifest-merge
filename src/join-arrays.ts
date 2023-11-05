@@ -8,10 +8,12 @@ const isArray = Array.isArray;
 export default function joinArrays({
   customizeArray,
   customizeObject,
+  customizePrimitive,
   key,
 }: {
   customizeArray?: Customize;
   customizeObject?: Customize;
+  customizePrimitive?: Customize;
   key?: Key;
 } = {}) {
   return function _joinArrays(a: any, b: any, k: Key): any {
@@ -41,6 +43,7 @@ export default function joinArrays({
           joinArrays({
             customizeArray,
             customizeObject,
+            customizePrimitive,
             key: newKey,
           }),
         )
@@ -55,6 +58,7 @@ export default function joinArrays({
       return [...b];
     }
 
-    return b;
+    const customResult = (customizePrimitive && customizePrimitive(a, b, newKey)) || b;
+    return customResult;
   };
 }

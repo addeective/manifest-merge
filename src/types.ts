@@ -5,6 +5,7 @@ export type Customize = (a: any, b: any, key: Key) => any;
 export interface ICustomizeOptions {
   customizeArray?: Customize;
   customizeObject?: Customize;
+  customizePrimitive?: Customize;
 }
 
 export enum CustomizeRule {
